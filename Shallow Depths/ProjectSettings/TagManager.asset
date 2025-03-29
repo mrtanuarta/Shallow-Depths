@@ -47,6 +47,9 @@ TagManager:
   - name: GroundTilemap
     uniqueID: 573346705
     locked: 0
+  - name: Shadow
+    uniqueID: 558894079
+    locked: 0
   - name: Collision
     uniqueID: 1582676349
     locked: 0
