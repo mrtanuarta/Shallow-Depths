@@ -47,8 +47,14 @@ TagManager:
   - name: GroundTilemap
     uniqueID: 573346705
     locked: 0
+  - name: Collision
+    uniqueID: 1582676349
+    locked: 0
   - name: Player
     uniqueID: 3276788793
+    locked: 0
+  - name: WalkBehind
+    uniqueID: 1965818957
     locked: 0
   m_RenderingLayers:
   - Default
