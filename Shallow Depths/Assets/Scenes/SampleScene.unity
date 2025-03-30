@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 318635480}
   - component: {fileID: 318635482}
   - component: {fileID: 318635483}
+  - component: {fileID: 318635484}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -456,6 +457,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7616236, y: 0.5642967}
   m_EdgeRadius: 0
+--- !u!114 &318635484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318635477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db3d853699f613429b3fdd29d1acc93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sanity: 100
 --- !u!1 &404345773
 GameObject:
   m_ObjectHideFlags: 0
@@ -4438,6 +4452,55 @@ Transform:
   - {fileID: 619394802}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1992434255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1992434256}
+  - component: {fileID: 1992434257}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1992434256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992434255}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8734386, y: -3.3002338, z: 0.027800547}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1992434257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992434255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff3090542f95e84fa2a5c1ed5bbfb06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueUI: {fileID: 790477677}
+  characterImage: {fileID: 0}
+  characterName: {fileID: 0}
+  dialogueText: {fileID: 0}
+  textSpeed: 0.05
 --- !u!1 &2020531551
 GameObject:
   m_ObjectHideFlags: 0
@@ -7200,3 +7263,4 @@ SceneRoots:
   - {fileID: 2025854347}
   - {fileID: 1442429372}
   - {fileID: 2087792859}
+  - {fileID: 1992434256}
