@@ -3,17 +3,29 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ScriptableObject", menuName = "ScriptableObjects/Dialogue")]
 public class TextDialogue : ScriptableObject
 {
-    public string characterName;  
+    public string characterName;
     public Sprite characterSprite;
-    public string sentence;       
+    public string sentence;
 
-    public int sanityChange;  // Modify sanity when dialogue is read
+    [Header("Yes Decision")]
+    public int YesSanityChange;
 
     // Item rewards (Optional)
-    public string itemToGive;
-    public int itemAmount;
+    public string YesItemToGive;
+    public int YesItemAmount;
 
     // Item requirements (Takes items from player)
-    public string itemToTake;
-    public int itemTakeAmount;
+    public string YesItemToTake;
+    public int YesItemTakeAmount;
+
+    [Header("No Decision")]
+    public int NoSanityChange;
+
+    // Item rewards (Optional)
+    public string NoItemToGive;
+    public int NoItemAmount;
+
+    // Item requirements (Takes items from player)
+    public string NoItemToTake;
+    public int NoItemTakeAmount;
 }
