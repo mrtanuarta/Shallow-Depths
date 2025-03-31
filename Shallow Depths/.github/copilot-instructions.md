@@ -4,7 +4,7 @@
 - Active scene:
   - Name: SampleScene
   - Tags:
-    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, NPC
+    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, NPC, PlayerReflection, Ground
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Water, UI
 - Active game object:
