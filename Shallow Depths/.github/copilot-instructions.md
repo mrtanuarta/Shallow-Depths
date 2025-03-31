@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Water, UI, NPC, Objects
 - Active game object:
-  - Name: Mysterious Statue
-  - Tag: NPC
-  - Layer: NPC
+  - Name: --Enemies Related--
+  - Tag: Untagged
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

@@ -17,11 +17,15 @@ public class NPCDialogue : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        _currentInteractUI = Instantiate(_InteractUI);
+        if (_currentInteractUI == null){
+            _currentInteractUI = Instantiate(_InteractUI);
+        }
         
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        Destroy(_currentInteractUI);
+        if (_currentInteractUI!=null){
+            Destroy(_currentInteractUI);
+        }
     }
 }

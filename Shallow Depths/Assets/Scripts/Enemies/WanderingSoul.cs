@@ -4,13 +4,16 @@ using UnityEngine;
 public class WanderingSoul : MonoBehaviour
 {
     private GameObject player;
+    private SpriteRenderer sr;
     [SerializeField]private float speed = 3.5f;
+    [SerializeField]
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         if (player == null){
             Debug.LogWarning("Player Not Found");
         }
+        sr = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
@@ -19,6 +22,7 @@ public class WanderingSoul : MonoBehaviour
         } else {
             transform.position = transform.position;
         }
+        OpacitySanity();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -26,5 +30,14 @@ public class WanderingSoul : MonoBehaviour
             GlobalVariable.Instance.karma -= 10;
             Destroy(this.gameObject);
         }
+    }
+    void OpacitySanity()
+    {
+        float OpacitySanity = (PlayerStats.Instance.getSanity()*-0.005f) + 0.75f;
+        Color newColor = sr.color;
+        Debug.Log("Opacity : "+OpacitySanity);
+        Debug.Log("GetSanity : "+PlayerStats.Instance.getSanity());
+        newColor.a = OpacitySanity;
+        sr.color = newColor;
     }
 }

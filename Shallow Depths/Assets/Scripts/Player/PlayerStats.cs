@@ -10,7 +10,9 @@ public class PlayerStats : MonoBehaviour
 
     // Inventory System
     private Dictionary<string, int> inventory = new Dictionary<string, int>();
-
+    public int getSanity(){
+        return sanity;
+    }
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -20,7 +22,7 @@ public class PlayerStats : MonoBehaviour
     public void ModifySanity(int amount)
     {
         sanity += amount;
-        sanity = Mathf.Clamp(sanity, 0, 100);
+        sanity = Mathf.Clamp(sanity, 1, 100);
         Debug.Log("Sanity: " + sanity);
     }
 
