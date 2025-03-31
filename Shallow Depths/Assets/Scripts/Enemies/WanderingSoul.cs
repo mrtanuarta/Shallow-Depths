@@ -16,6 +16,8 @@ public class WanderingSoul : MonoBehaviour
     {
         if (GlobalVariable.Instance.onWater == true){
             transform.position = Vector2.MoveTowards(transform.position, (Vector2)player.transform.position + new Vector2(0,-1), speed*Time.deltaTime);
+        } else {
+            transform.position = transform.position;
         }
     }
     void OnTriggerEnter2D(Collider2D other)

@@ -6,9 +6,9 @@
   - Tags:
     - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, NPC, PlayerReflection, Ground
   - Layers:
-    - Default, TransparentFX, Ignore Raycast, Water, UI
+    - Default, TransparentFX, Ignore Raycast, Water, UI, NPC, Objects
 - Active game object:
-  - Name: GlobalVariable
-  - Tag: Untagged
-  - Layer: Default
+  - Name: Mysterious Statue
+  - Tag: NPC
+  - Layer: NPC
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

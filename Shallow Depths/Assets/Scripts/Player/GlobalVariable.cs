@@ -13,6 +13,5 @@ public class GlobalVariable : MonoBehaviour
 
     [Header("PlayerStatus")]
     public bool onWater = true;
-    public int sanity = PlayerStats.Instance.sanity;
     public int karma = 0; 
 }
