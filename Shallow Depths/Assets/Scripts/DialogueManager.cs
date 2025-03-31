@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private GameObject dialogueUI;
     [SerializeField] private Image characterImage;
-    [SerializeField] private Text nameText;
-    [SerializeField] private Text dialogueText;
+    [SerializeField] public TMP_Text nameText;
+    [SerializeField] public TMP_Text dialogueText;
 
     private Queue<TextDialogue> dialogueQueue = new Queue<TextDialogue>();
     private bool isDialogueActive = false;
