@@ -1,122 +1,80 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager Instance;
+    public static DialogueManager Instance; // Singleton reference
 
-    public GameObject dialogueUI;
-    public Image characterImage;
-    public Text characterName;
-    public Text dialogueText;
-    public float textSpeed = 0.05f;
+    [SerializeField] private GameObject dialogueUI;
+    [SerializeField] private Image characterImage;
+    [SerializeField] private Text nameText;
+    [SerializeField] private Text dialogueText;
 
-    private TextDialogue[] dialogueLines;
-    private int currentLine;
+    private Queue<TextDialogue> dialogueQueue = new Queue<TextDialogue>();
     private bool isDialogueActive = false;
 
-    private PlayerMovement playerMovement;
-    private PlayerInput playerInput;
-    private PlayerStats playerStats;
-
-    void Awake()
+    private void Awake()
     {
-        if (Instance == null) Instance = this;
-    }
-
-    void Start()
-    {
-        dialogueUI.SetActive(false);
-        playerMovement = FindObjectOfType<PlayerMovement>();
-        playerInput = FindObjectOfType<PlayerInput>();
-        playerStats = FindObjectOfType<PlayerStats>();
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
     }
 
     public void StartDialogue(TextDialogue[] dialogues)
     {
-        dialogueLines = dialogues;  // Store all dialogue lines
-        currentLine = 0;
-        isDialogueActive = true;
+        if (dialogues == null || dialogues.Length == 0)
+        {
+            Debug.LogError("StartDialogue: No dialogues provided!");
+            return;
+        }
+
+        dialogueQueue.Clear();
+        foreach (var dialogue in dialogues)
+        {
+            dialogueQueue.Enqueue(dialogue);
+        }
+
         dialogueUI.SetActive(true);
-        playerMovement.EnableMovement(false);
-        playerInput.DeactivateInput();
-
-        ShowDialogue(dialogueLines[currentLine]);
+        isDialogueActive = true;
+        DisplayNextDialogue();
     }
 
-
-    void ShowDialogue(TextDialogue dialogue)
+    public void DisplayNextDialogue()
     {
-        characterImage.sprite = dialogue.picture;
-        characterName.text = dialogue.char_name;
-        StartCoroutine(TypeText(dialogue.dialogue));
-
-        // Apply sanity change
-        if (dialogue.sanityChange != 0)
-        {
-            playerStats.ModifySanity(dialogue.sanityChange);
-        }
-
-        // Take items (if required)
-        if (!string.IsNullOrEmpty(dialogue.itemToTake))
-        {
-            if (playerStats.HasItem(dialogue.itemToTake, dialogue.itemTakeAmount))
-            {
-                playerStats.RemoveItem(dialogue.itemToTake, dialogue.itemTakeAmount);
-                Debug.Log($"Gave away {dialogue.itemTakeAmount}x {dialogue.itemToTake}");
-            }
-            else
-            {
-                Debug.Log($"You don't have {dialogue.itemTakeAmount}x {dialogue.itemToTake}!");
-                // Maybe trigger a different dialogue line if the player lacks items
-            }
-        }
-
-        // Give items
-        if (!string.IsNullOrEmpty(dialogue.itemToGive))
-        {
-            playerStats.AddItem(dialogue.itemToGive, dialogue.itemAmount);
-        }
-    }
-
-    IEnumerator TypeText(string line)
-    {
-        dialogueText.text = "";
-        foreach (char c in line)
-        {
-            dialogueText.text += c;
-            yield return new WaitForSeconds(textSpeed);
-        }
-    }
-
-    void Update()
-    {
-        if (isDialogueActive && Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            NextDialogue();
-        }
-    }
-
-    void NextDialogue()
-    {
-        currentLine++;
-        if (currentLine < dialogueLines.Length)
-        {
-            ShowDialogue(dialogueLines[currentLine]);
-        }
-        else
+        if (dialogueQueue.Count == 0)
         {
             EndDialogue();
+            return;
         }
+
+        TextDialogue currentDialogue = dialogueQueue.Dequeue();
+
+        if (currentDialogue == null)
+        {
+            Debug.LogError("DisplayNextDialogue: Encountered a null dialogue!");
+            return;
+        }
+
+        Debug.Log("Displaying dialogue for: " + currentDialogue.char_name);
+        Debug.Log("Dialogue text: " + currentDialogue.dialogue);
+
+        if (characterImage == null || nameText == null || dialogueText == null)
+        {
+            Debug.LogError("UI elements not assigned in DialogueManager!");
+            return;
+        }
+
+        characterImage.sprite = currentDialogue.picture;
+        nameText.text = currentDialogue.char_name;
+        dialogueText.text = currentDialogue.dialogue;
     }
 
-    void EndDialogue()
+
+    private void EndDialogue()
     {
         dialogueUI.SetActive(false);
         isDialogueActive = false;
-        playerMovement.EnableMovement(true);
-        playerInput.ActivateInput();
     }
 }

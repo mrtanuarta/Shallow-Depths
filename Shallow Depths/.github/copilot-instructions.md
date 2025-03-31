@@ -2,7 +2,7 @@
 - Project name: Shallow Depths
 - Unity version: Unity 6000.0.42f1
 - Active game object:
-  - Name: Collison
+  - Name: UIManager
   - Tag: Untagged
-  - Layer: Default
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

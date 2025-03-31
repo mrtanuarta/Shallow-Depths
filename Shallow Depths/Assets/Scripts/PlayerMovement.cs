@@ -1,51 +1,36 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 1f;
+    [SerializeField] private float moveSpeed = 1f;
 
-    private Vector2 _movement;
-    private Rigidbody2D _rb;
-    private Animator _animator;
-    private bool _canMove = true; // Control movement during interaction
-
-    private const string _horizontal = "Horizontal";
-    private const string _vertical = "Vertical";
-    private const string _lastHorizontal = "LastHorizontal";
-    private const string _lastVertical = "LastVertical";
+    private Vector2 movement;
+    private Rigidbody2D rb;
+    private Animator animator;
+    private bool canMove = true;
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (!_canMove)
-        {
-            _rb.linearVelocity = Vector2.zero; // Stop movement
-            _animator.SetFloat(_horizontal, 0);
-            _animator.SetFloat(_vertical, 0);
-            return;
-        }
+        if (canMove)
+            rb.linearVelocity = movement * moveSpeed;
+        else
+            rb.linearVelocity = Vector2.zero;
+    }
 
-        _movement = InputManager.Movement; // Get input from InputManager
-        _rb.linearVelocity = _movement * _moveSpeed;
-
-        _animator.SetFloat(_horizontal, _movement.x);
-        _animator.SetFloat(_vertical, _movement.y);
-
-        if (_movement != Vector2.zero)
-        {
-            _animator.SetFloat(_lastHorizontal, _movement.x);
-            _animator.SetFloat(_lastVertical, _movement.y);
-        }
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        movement = context.ReadValue<Vector2>(); // Reads movement input
     }
 
     public void EnableMovement(bool enable)
     {
-        _canMove = enable;
-        if (!enable) _rb.linearVelocity = Vector2.zero; // Ensures player stops immediately
+        canMove = enable;
     }
 }
