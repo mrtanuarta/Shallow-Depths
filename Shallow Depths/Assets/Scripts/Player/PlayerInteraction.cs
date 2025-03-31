@@ -12,6 +12,7 @@ public class PlayerInteraction : MonoBehaviour
             _nearbyNPC = other.GetComponent<NPCDialogue>();
             Debug.Log("Entered NPC range: " + _nearbyNPC.name);
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
