@@ -8,7 +8,10 @@ public class TextDialogue : ScriptableObject
     public string sentence;
 
     [Header("Yes Decision")]
-    public int YesSanityChange;
+    
+    public int YesSanityChange; // Change to sanity
+    public int YesKarmaChange; // Change to Karma
+
 
     // Item rewards (Optional)
     public string YesItemToGive;
@@ -19,7 +22,8 @@ public class TextDialogue : ScriptableObject
     public int YesItemTakeAmount;
 
     [Header("No Decision")]
-    public int NoSanityChange;
+    public int NoSanityChange; // Change to sanity
+    public int NoKarmaChange; // Change to Karma
 
     // Item rewards (Optional)
     public string NoItemToGive;
