@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Water, UI, NPC, Objects
 - Active game object:
-  - Name: --Enemies Related--
-  - Tag: Untagged
+  - Name: Player
+  - Tag: Player
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

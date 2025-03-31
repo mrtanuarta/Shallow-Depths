@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class WanderingSoul : MonoBehaviour
             Debug.LogWarning("Player Not Found");
         }
         sr = GetComponent<SpriteRenderer>();
+        StartCoroutine(SelfDestroy());
     }
     void Update()
     {
@@ -39,5 +41,10 @@ public class WanderingSoul : MonoBehaviour
         Debug.Log("GetSanity : "+PlayerStats.Instance.getSanity());
         newColor.a = OpacitySanity;
         sr.color = newColor;
+    }
+    IEnumerator SelfDestroy()
+    {
+        yield return new WaitForSeconds(15f); // Wait for 15 seconds
+        Destroy(gameObject);
     }
 }
