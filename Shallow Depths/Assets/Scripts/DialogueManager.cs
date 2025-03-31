@@ -2,18 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using System.Collections;
 
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager Instance; // Singleton reference
+    public static DialogueManager Instance; // Singleton instance
 
     [SerializeField] private GameObject dialogueUI;
     [SerializeField] private Image characterImage;
-    [SerializeField] public TMP_Text nameText;
-    [SerializeField] public TMP_Text dialogueText;
+    [SerializeField] private TMP_Text nameText;
+    [SerializeField] private TMP_Text dialogueText;
 
-    private Queue<TextDialogue> dialogueQueue = new Queue<TextDialogue>();
-    private bool isDialogueActive = false;
+    private Queue<TextDialogue> _dialogues = new Queue<TextDialogue>();
+
+    private bool canProceed = true;
 
     private void Awake()
     {
@@ -25,57 +27,57 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(TextDialogue[] dialogues)
     {
-        if (dialogues == null || dialogues.Length == 0)
+        _dialogues.Clear(); // Clear any old dialogues
+
+        foreach (TextDialogue dialogue in dialogues)
         {
-            Debug.LogError("StartDialogue: No dialogues provided!");
-            return;
+            _dialogues.Enqueue(dialogue); // Add each dialogue window
         }
 
-        dialogueQueue.Clear();
-        foreach (var dialogue in dialogues)
-        {
-            dialogueQueue.Enqueue(dialogue);
-        }
+        dialogueUI.SetActive(true); // Show UI
+        PlayerMovement.Instance.EnableMovement(false); // Stop player movement
 
-        dialogueUI.SetActive(true);
-        isDialogueActive = true;
-        DisplayNextDialogue();
+        DisplayNextDialogue(); // Start showing dialogues
     }
 
     public void DisplayNextDialogue()
     {
-        if (dialogueQueue.Count == 0)
+        if (!canProceed) return; // Prevents multiple triggers in one frame
+
+        StartCoroutine(DialogueCooldown()); // Start cooldown
+
+        if (_dialogues.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        TextDialogue currentDialogue = dialogueQueue.Dequeue();
+        TextDialogue currentDialogue = _dialogues.Dequeue();
+        nameText.text = currentDialogue.characterName;
+        dialogueText.text = currentDialogue.sentence;
 
-        if (currentDialogue == null)
+        if (characterImage != null)
         {
-            Debug.LogError("DisplayNextDialogue: Encountered a null dialogue!");
-            return;
+            characterImage.sprite = currentDialogue.characterSprite;
+            characterImage.gameObject.SetActive(currentDialogue.characterSprite != null);
         }
-
-        Debug.Log("Displaying dialogue for: " + currentDialogue.char_name);
-        Debug.Log("Dialogue text: " + currentDialogue.dialogue);
-
-        if (characterImage == null || nameText == null || dialogueText == null)
-        {
-            Debug.LogError("UI elements not assigned in DialogueManager!");
-            return;
-        }
-
-        characterImage.sprite = currentDialogue.picture;
-        nameText.text = currentDialogue.char_name;
-        dialogueText.text = currentDialogue.dialogue;
     }
 
+    private IEnumerator DialogueCooldown()
+    {
+        canProceed = false;
+        yield return new WaitForSeconds(0.2f); // Adjust as needed
+        canProceed = true;
+    }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         dialogueUI.SetActive(false);
-        isDialogueActive = false;
+        PlayerMovement.Instance.EnableMovement(true); // Re-enable movement
+    }
+
+    public void OnContinue()
+    {
+        DisplayNextDialogue();
     }
 }

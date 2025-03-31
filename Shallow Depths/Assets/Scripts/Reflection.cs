@@ -26,7 +26,6 @@ public class Reflection : MonoBehaviour
 
     void LateUpdate()
     {
-        Debug.Log("Update Running");
         if (playerRenderer != null && reflectionRenderer != null)
         {
             reflectionRenderer.sprite = playerRenderer.sprite;
