@@ -7,6 +7,9 @@ public class TextDialogue : ScriptableObject
     public Sprite characterSprite;
     public string sentence;
 
+    [Header("Choice Options")]
+    public bool hasDecision; // If true, shows YES/NO buttons
+
     [Header("Yes Decision")]
     
     public int YesSanityChange; // Change to sanity
