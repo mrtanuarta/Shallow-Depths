@@ -4,11 +4,11 @@
 - Active scene:
   - Name: SampleScene
   - Tags:
-    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, NPC
+    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, NPC, PlayerReflection, Ground
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Water, UI
 - Active game object:
-  - Name: GlobalVariable
+  - Name: WanderingSoul_0
   - Tag: Untagged
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
