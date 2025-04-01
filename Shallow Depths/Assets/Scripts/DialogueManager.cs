@@ -12,6 +12,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Image characterImage;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private TMP_Text yesText;
+    [SerializeField] private TMP_Text noText;
 
     private Queue<TextDialogue> _dialogues = new Queue<TextDialogue>();
 
@@ -60,6 +62,15 @@ public class DialogueManager : MonoBehaviour
         TextDialogue currentDialogue = _dialogues.Dequeue();
         nameText.text = currentDialogue.characterName;
         dialogueText.text = currentDialogue.sentence;
+        yesText.text = currentDialogue.yesSentence;
+        if (currentDialogue.hasDecision)
+        {
+            noText.text = currentDialogue.noSentence;
+        }
+        else
+        {
+            noText.text = null;
+        }
 
         if (characterImage != null)
         {

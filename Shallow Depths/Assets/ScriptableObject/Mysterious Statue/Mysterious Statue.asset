@@ -16,12 +16,14 @@ MonoBehaviour:
   characterSprite: {fileID: 7642980859614939925, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: You feel an eerie presence as you approach the statue...
   hasDecision: 0
+  yesSentence: Next
   YesSanityChange: 0
   YesKarmaChange: 0
   YesItemToGive: 
   YesItemAmount: 0
   YesItemToTake: 
   YesItemTakeAmount: 0
+  noSentence: 
   NoSanityChange: 0
   NoKarmaChange: 0
   NoItemToGive: 

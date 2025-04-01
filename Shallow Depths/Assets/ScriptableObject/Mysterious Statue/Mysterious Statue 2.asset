@@ -15,13 +15,15 @@ MonoBehaviour:
   characterName: Mysterious Statue
   characterSprite: {fileID: 7642980859614939925, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: '''Will you accept the trial of wisdom?'''
-  hasDecision: 0
+  hasDecision: 1
+  yesSentence: Yes
   YesSanityChange: 0
   YesKarmaChange: 0
   YesItemToGive: 
   YesItemAmount: 0
   YesItemToTake: 
   YesItemTakeAmount: 0
+  noSentence: No
   NoSanityChange: 0
   NoKarmaChange: 0
   NoItemToGive: 
