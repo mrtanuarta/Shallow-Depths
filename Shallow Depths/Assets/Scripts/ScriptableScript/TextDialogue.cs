@@ -11,7 +11,8 @@ public class TextDialogue : ScriptableObject
     public bool hasDecision; // If true, shows YES/NO buttons
 
     [Header("Yes Decision")]
-    
+    public string yesSentence;
+
     public int YesSanityChange; // Change to sanity
     public int YesKarmaChange; // Change to Karma
 
@@ -25,6 +26,8 @@ public class TextDialogue : ScriptableObject
     public int YesItemTakeAmount;
 
     [Header("No Decision")]
+    public string noSentence;
+
     public int NoSanityChange; // Change to sanity
     public int NoKarmaChange; // Change to Karma
 

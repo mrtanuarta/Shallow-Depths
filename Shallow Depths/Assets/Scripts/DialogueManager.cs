@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<TextDialogue> _dialogues = new Queue<TextDialogue>();
 
+    private bool dialogueIsActive = false;
     private bool canProceed = true;
 
     private void Awake()
@@ -27,17 +28,21 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(TextDialogue[] dialogues)
     {
-        _dialogues.Clear(); // Clear any old dialogues
-
-        foreach (TextDialogue dialogue in dialogues)
+        if (!dialogueIsActive)
         {
-            _dialogues.Enqueue(dialogue); // Add each dialogue window
+            dialogueIsActive = true;
+            _dialogues.Clear(); // Clear any old dialogues
+
+            foreach (TextDialogue dialogue in dialogues)
+            {
+                _dialogues.Enqueue(dialogue); // Add each dialogue window
+            }
+
+            dialogueUI.SetActive(true); // Show UI
+            PlayerMovement.Instance.EnableMovement(false); // Stop player movement
+
+            DisplayNextDialogue(); // Start showing dialogues
         }
-
-        dialogueUI.SetActive(true); // Show UI
-        PlayerMovement.Instance.EnableMovement(false); // Stop player movement
-
-        DisplayNextDialogue(); // Start showing dialogues
     }
 
     public void DisplayNextDialogue()
@@ -73,6 +78,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         dialogueUI.SetActive(false);
+        dialogueIsActive = false;
         PlayerMovement.Instance.EnableMovement(true); // Re-enable movement
     }
 
