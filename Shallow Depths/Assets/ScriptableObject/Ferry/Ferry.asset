@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: You
   characterSprite: {fileID: 0}
-  sentence: Are you sure to leave this island towards your graandma?
+  sentence: Are you sure to leave this island towards your grandma?
   hasDecision: 1
+  yesSentence: 
   YesSanityChange: 0
   YesKarmaChange: 0
   YesItemToGive: 
   YesItemAmount: 0
   YesItemToTake: 
   YesItemTakeAmount: 0
+  noSentence: 
   NoSanityChange: 0
   NoKarmaChange: 0
   NoItemToGive: 
