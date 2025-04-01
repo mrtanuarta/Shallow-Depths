@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147dd680426de4c4e8c3e262b080aab6, type: 3}
+  m_Name: Ending 1 Sequence
+  m_EditorClassIdentifier: 
+  dialogues:
+  - {fileID: 11400000, guid: c1b49830875a5b04abdfcb172ebadfe0, type: 2}
+  - {fileID: 11400000, guid: 864e1b194471e0b4fbace67398b307a0, type: 2}
+  - {fileID: 11400000, guid: bb593f48e01f21345adb5b1c709e977b, type: 2}
