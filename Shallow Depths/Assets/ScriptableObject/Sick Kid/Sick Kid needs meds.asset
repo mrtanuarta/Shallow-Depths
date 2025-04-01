@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f67728fc44ce8d44951bec2af3846f6, type: 3}
-  m_Name: Clinic Staff 3
+  m_Name: Sick Kid needs meds
   m_EditorClassIdentifier: 
-  characterName: Clinic Staff
+  characterName: Sick Child
   characterSprite: {fileID: 0}
-  sentence: Have a good day, sir!
-  hasDecision: 0
-  yesSentence: 
-  YesSanityChange: 10
-  YesKarmaChange: 10
-  YesItemToGive: Grandma's Meds
-  YesItemAmount: 1
-  YesItemToTake: 
-  YesItemTakeAmount: 0
-  noSentence: 
-  NoSanityChange: 0
-  NoKarmaChange: 0
+  sentence: You see a sick child writhing, what do you do?
+  hasDecision: 1
+  yesSentence: Give grandma's meds
+  YesSanityChange: 20
+  YesKarmaChange: -20
+  YesItemToGive: 
+  YesItemAmount: 0
+  YesItemToTake: Grandma's Meds
+  YesItemTakeAmount: 1
+  noSentence: I can't help!
+  NoSanityChange: -20
+  NoKarmaChange: 20
   NoItemToGive: 
   NoItemAmount: 0
   NoItemToTake: 

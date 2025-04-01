@@ -17,12 +17,14 @@ MonoBehaviour:
   sentence: Hey bud, I'm looking for several logs for me to use later tonight as
     firewood.
   hasDecision: 0
+  yesSentence: 
   YesSanityChange: 0
   YesKarmaChange: 0
   YesItemToGive: 
   YesItemAmount: 0
   YesItemToTake: 
   YesItemTakeAmount: 0
+  noSentence: 
   NoSanityChange: 0
   NoKarmaChange: 0
   NoItemToGive: 

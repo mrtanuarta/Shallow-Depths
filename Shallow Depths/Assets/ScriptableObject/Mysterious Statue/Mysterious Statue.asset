@@ -17,7 +17,7 @@ MonoBehaviour:
   sentence: You feel an eerie presence as you approach the statue...
   hasDecision: 0
   yesSentence: Next
-  YesSanityChange: 0
+  YesSanityChange: -5
   YesKarmaChange: 0
   YesItemToGive: 
   YesItemAmount: 0

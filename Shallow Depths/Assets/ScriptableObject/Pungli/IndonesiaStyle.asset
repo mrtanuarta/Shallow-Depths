@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f67728fc44ce8d44951bec2af3846f6, type: 3}
-  m_Name: Clinic Staff 3
+  m_Name: IndonesiaStyle
   m_EditorClassIdentifier: 
-  characterName: Clinic Staff
+  characterName: Beggar
   characterSprite: {fileID: 0}
-  sentence: Have a good day, sir!
+  sentence: A beggar incessantly begs you for money, he won't stop harassing you
+    until you give it
   hasDecision: 0
-  yesSentence: 
-  YesSanityChange: 10
-  YesKarmaChange: 10
-  YesItemToGive: Grandma's Meds
-  YesItemAmount: 1
+  yesSentence: Fine...
+  YesSanityChange: -15
+  YesKarmaChange: 5
+  YesItemToGive: 
+  YesItemAmount: 0
   YesItemToTake: 
   YesItemTakeAmount: 0
   noSentence: 
