@@ -1,16 +1,20 @@
+using System.Data;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     private SpriteRenderer sr;
-    public float lifetime = 3f; // Destroy after 3 seconds
-
     private Rigidbody2D rb;
+    public float lifetime = 3f; // Destroy after 3 seconds
 
     void Start()
     {
         Destroy(gameObject, lifetime); // Auto-destroy after a while
         sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        if (rb == null){
+            rb.linearVelocity = Vector2.right;
+        }
     }
     void Update()
     {

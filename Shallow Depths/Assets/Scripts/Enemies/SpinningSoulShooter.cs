@@ -1,19 +1,18 @@
 using UnityEngine;
 
-public class SoulShooter : MonoBehaviour
+public class SpinningSoulShooter : MonoBehaviour
 {
+    private GameObject player;
+    private SpriteRenderer sr;
+    public float lifetime = 3f; // Destroy after 3 seconds
     public GameObject bulletPrefab; // Assign in Inspector
     public Transform firePoint; // Set a fire point where bullets spawn
     public float bulletSpeed = 5f;
     public float finalBulletSpeed;
     public float finalFireRate;
-    public float detectionRange = 12f;
+    public float detectionRange = 10f;
     private float nextFireTime;
     private bool isAggressive = false;
-    
-    private GameObject player;
-    private SpriteRenderer sr;
-    
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -24,19 +23,7 @@ public class SoulShooter : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
-    {
-        CheckAggression();
-        OpacitySanity();
-        updateBasedOnSanity();
-        
-        if (isAggressive && Time.time >= nextFireTime)
-        {
-            Shoot();
-            nextFireTime = Time.time + 1f / finalFireRate;
-        }
-    }
-
+    // Update is called once per frame
     void CheckAggression()
     {
         if (player == null) return;
@@ -44,7 +31,12 @@ public class SoulShooter : MonoBehaviour
         float distance = Vector2.Distance(transform.position, player.transform.position);
         isAggressive = distance <= detectionRange;
     }
-
+    void Update()
+    {
+        CheckAggression();
+        OpacitySanity();
+        updateBasedOnSanity();
+    }
     void OpacitySanity()
     {
         if (sr == null || PlayerStats.Instance == null) return;
@@ -56,16 +48,15 @@ public class SoulShooter : MonoBehaviour
         newColor.a = opacitySanity;
         sr.color = newColor;
     }
-
+    void updateBasedOnSanity()
+    {
+        finalBulletSpeed = Mathf.Lerp(9f, 5f, PlayerStats.Instance.getSanity() / 100f);
+        finalFireRate = Mathf.Lerp(1f, 2f, PlayerStats.Instance.getSanity() / 100f);
+    }
     void Shoot()
     {
         if (player == null || bulletPrefab == null || firePoint == null) return;
-
-        // Calculate direction to player
-        Vector2 direction = (player.transform.position - firePoint.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         
-        // Spawn bullet with rotation
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(0, 0, angle));
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         if (rb != null)
@@ -73,10 +64,4 @@ public class SoulShooter : MonoBehaviour
             rb.linearVelocity = direction * finalBulletSpeed;
         }
     }
-    void updateBasedOnSanity()
-    {
-        finalBulletSpeed = Mathf.Lerp(9f, 5f, PlayerStats.Instance.getSanity() / 100f);
-        finalFireRate = Mathf.Lerp(1f, 2f, PlayerStats.Instance.getSanity() / 100f);
-    }
-
 }
