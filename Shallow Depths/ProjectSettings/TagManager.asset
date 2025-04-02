@@ -8,6 +8,7 @@ TagManager:
   - PlayerReflection
   - Ground
   - Enemies
+  - LandBorder
   layers:
   - Default
   - TransparentFX

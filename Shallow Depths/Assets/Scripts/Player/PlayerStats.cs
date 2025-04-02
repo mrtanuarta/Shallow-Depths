@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -12,6 +13,15 @@ public class PlayerStats : MonoBehaviour
     private Dictionary<string, int> inventory = new Dictionary<string, int>();
     public int getSanity(){
         return sanity;
+    }
+    void Start()
+    {
+        sanity = 100;
+        StartCoroutine(RunEveryTwoSeconds());
+    }
+    void Update()
+    {
+        
     }
     void Awake()
     {
@@ -66,6 +76,18 @@ public class PlayerStats : MonoBehaviour
         foreach (var item in inventory)
         {
             Debug.Log($"{item.Key}: {item.Value}");
+        }
+    }
+    IEnumerator RunEveryTwoSeconds()
+    {
+        while (true) // Infinite loop
+        {
+            Debug.Log("Running every 1.5 seconds...");
+            if (GlobalVariable.Instance.onWater){
+                sanity --;
+            }
+            yield return new WaitForSeconds(1.5f); // Wait for 2 seconds
+
         }
     }
 }

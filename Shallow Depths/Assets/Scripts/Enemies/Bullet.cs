@@ -3,14 +3,19 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private SpriteRenderer sr;
-    public float lifetime = 3f; // Destroy after 3 seconds
-
     private Rigidbody2D rb;
+    public float lifetime = 20f; // Destroy after 3 seconds
 
     void Start()
     {
         Destroy(gameObject, lifetime); // Auto-destroy after a while
         sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+
+        if (rb.linearVelocity == null)
+        {
+            rb.linearVelocity = transform.right * 5f; // Adjust speed as needed
+        }
     }
     void Update()
     {
@@ -30,13 +35,13 @@ public class Bullet : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerReflection"))
         {
             // Implement damage logic here
             Debug.Log("Player Hit!");
             Destroy(gameObject);
         }
-        else if (!other.CompareTag("Enemies")) // Prevent self-hit
+        else if (!other.CompareTag("Enemies") && !other.CompareTag("LandBorder")) // Prevent self-hit
         {
             Destroy(gameObject);
         }
