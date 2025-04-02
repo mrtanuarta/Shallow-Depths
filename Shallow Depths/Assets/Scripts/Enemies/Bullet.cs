@@ -35,13 +35,13 @@ public class Bullet : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerReflection"))
         {
             // Implement damage logic here
             Debug.Log("Player Hit!");
             Destroy(gameObject);
         }
-        else if (!other.CompareTag("Enemies")) // Prevent self-hit
+        else if (!other.CompareTag("Enemies") && !other.CompareTag("LandBorder")) // Prevent self-hit
         {
             Destroy(gameObject);
         }

@@ -61,8 +61,8 @@ public class SoulShooter : MonoBehaviour
     {
         if (player == null || bulletPrefab == null || firePoint == null) return;
 
-        // Calculate direction to player
-        Vector2 direction = (player.transform.position - firePoint.position).normalized;
+        Vector2 targetPosition = (Vector2)player.transform.position + new Vector2(0, -1);
+        Vector2 direction = (targetPosition - (Vector2)firePoint.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         
         // Spawn bullet with rotation
@@ -76,11 +76,11 @@ public class SoulShooter : MonoBehaviour
     void updateBasedOnSanity()
     {
         finalBulletSpeed = Mathf.Lerp(9f, 5f, PlayerStats.Instance.getSanity() / 100f);
-        finalFireRate = Mathf.Lerp(1f, 2f, PlayerStats.Instance.getSanity() / 100f);
+        finalFireRate = Mathf.Lerp(2f, 1f, PlayerStats.Instance.getSanity() / 100f);
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerReflection"))
         {
             // Implement damage logic here
             Debug.Log("Player Hit!");

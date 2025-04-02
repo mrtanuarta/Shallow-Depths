@@ -28,13 +28,13 @@ public class WanderingSoul : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("PlayerReflection"))
         {
             // Implement damage logic here
             Debug.Log("Player Hit!");
             Destroy(gameObject);
         }
-        else if (!other.CompareTag("Enemies")) // Prevent self-hit
+        else if (!other.CompareTag("Enemies")&& !other.CompareTag("LandBorder")) // Prevent self-hit
         {
             Destroy(gameObject);
         }
@@ -43,8 +43,6 @@ public class WanderingSoul : MonoBehaviour
     {
         float OpacitySanity = (PlayerStats.Instance.getSanity()*-0.005f) + 0.75f;
         Color newColor = sr.color;
-        Debug.Log("Opacity : "+OpacitySanity);
-        Debug.Log("GetSanity : "+PlayerStats.Instance.getSanity());
         newColor.a = OpacitySanity;
         sr.color = newColor;
     }

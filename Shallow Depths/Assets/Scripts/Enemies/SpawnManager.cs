@@ -22,7 +22,6 @@ public class SpawnManager : MonoBehaviour
         // Add enemies to the list when sanity reaches specific values
         if (sanity <= 100 && activeEnemies.Count < 1) activeEnemies.Add(enemyPrefabs[0]);
         if (sanity <= 60 && activeEnemies.Count < 2) activeEnemies.Add(enemyPrefabs[1]);
-        if (sanity <= 20 && activeEnemies.Count < 3) activeEnemies.Add(enemyPrefabs[2]);
     }
 
     IEnumerator SpawnEnemyRoutine()
