@@ -17,8 +17,8 @@ MonoBehaviour:
   sentence: '''Will you accept the trial of wisdom?'''
   hasDecision: 1
   yesSentence: Yes
-  YesSanityChange: 10
-  YesKarmaChange: 0
+  YesSanityChange: -40
+  YesKarmaChange: 50
   YesItemToGive: Mark of the challenge
   YesItemAmount: 1
   YesItemToTake: 

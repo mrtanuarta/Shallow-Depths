@@ -11,10 +11,11 @@ public class SpinningSoulShooter : MonoBehaviour
     public float finalFireRate;
     private float detectionRange = 40f;
     private float nextFireTime;
-    private bool isAggressive = false;
+    [SerializeField]private bool isAggressive = false;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        firePoint = gameObject.transform;
         if (player == null)
         {
             Debug.LogWarning("Player Not Found");
@@ -59,8 +60,9 @@ public class SpinningSoulShooter : MonoBehaviour
     }
     void Shoot()
     {
+        Debug.Log("Shoot is touched");
         if (player == null || bulletPrefab2 == null || firePoint == null) return;
-        
+        Debug.Log("Shoots");
         float shooterRotation = transform.eulerAngles.z; // Get the current rotation of the shooter
         
         for (int i = 0; i < 8; i++) // Loop through 8 directions

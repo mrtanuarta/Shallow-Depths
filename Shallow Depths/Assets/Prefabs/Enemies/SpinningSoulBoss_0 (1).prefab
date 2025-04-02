@@ -102,6 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 3
   bulletPrefab2: {fileID: 2719187165380890775, guid: b1882dd50f7fe434f92334ad4c740363, type: 3}
-  firePoint: {fileID: 1072647650497801966, guid: 554644259b269fd4aa895f6ec9695661, type: 3}
+  firePoint: {fileID: 0}
   finalBulletSpeed: 0
   finalFireRate: 0
