@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 public class NPCDialogue : MonoBehaviour
 {
-    public TextDialogue[] dialogues; // Array of multiple dialogues
+    [SerializeField] private TextDialogue[] dialogues; // Array of multiple dialogues
     [SerializeField] private GameObject _InteractUI;
     private Collider2D Collider2D;
     private GameObject _currentInteractUI;

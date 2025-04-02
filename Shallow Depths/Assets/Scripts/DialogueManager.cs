@@ -19,8 +19,6 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<TextDialogue> _dialogues = new Queue<TextDialogue>();
     private bool dialogueIsActive = false;
-    private bool canProceed = true;
-    private bool decisionMade = false; // New: Prevent multiple inputs
     private TextDialogue currentDialogue;
 
     private void Awake()
@@ -44,49 +42,28 @@ public class DialogueManager : MonoBehaviour
     {
         if (!dialogueIsActive)
         {
+            foreach (TextDialogue dialogue in dialogues)
+            {
+                _dialogues.Enqueue(dialogue);
+            }
+
             dialogueIsActive = true;
-
-            // Add a delay before clearing dialogues and activating the UI
-            StartCoroutine(DelayedDialogueStart(dialogues));
+            dialogueUI.SetActive(true);
+            PlayerMovement.Instance.EnableMovement(false);
+            DisplayNextDialogue();
         }
-    }
-
-    private IEnumerator DelayedDialogueStart(TextDialogue[] dialogues)
-    {
-        // Wait for a short delay before activating the UI
-        yield return new WaitForSeconds(0.2f); // Adjust the delay as needed
-
-        // Clear any old dialogues after the delay
-        _dialogues.Clear();
-
-        // Add each dialogue window to the queue
-        foreach (TextDialogue dialogue in dialogues)
-        {
-            _dialogues.Enqueue(dialogue);
-        }
-
-        dialogueUI.SetActive(true); // Show UI
-        PlayerMovement.Instance.EnableMovement(false); // Stop player movement
-
-        // Start the dialogue after the delay
-        DisplayNextDialogue();
     }
 
     public void DisplayNextDialogue()
     {
-        if (!canProceed) return; // Prevents multiple triggers in one frame
-
-        StartCoroutine(DialogueCooldown()); // Start cooldown
-
         if (_dialogues.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        decisionMade = false; // Reset decision flag for the new dialogue
-
         currentDialogue = _dialogues.Dequeue();
+
         nameText.text = currentDialogue.characterName;
         dialogueText.text = currentDialogue.sentence;
 
@@ -110,18 +87,8 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private IEnumerator DialogueCooldown()
-    {
-        canProceed = false;
-        yield return new WaitForSeconds(0.2f); // Adjust as needed
-        canProceed = true;
-    }
-
     public void HandleDecision(bool isYes)
     {
-        if (decisionMade) return; // Prevent duplicate inputs
-        decisionMade = true; // Lock input until next dialogue
-
         if (isYes)
         {
             PlayerStats.Instance.ModifySanity(currentDialogue.YesSanityChange);
@@ -135,22 +102,8 @@ public class DialogueManager : MonoBehaviour
             PlayerStats.Instance.RemoveItem(currentDialogue.NoItemToTake, currentDialogue.NoItemTakeAmount);
         }
 
-        // Ensure buttons behave correctly after selection
-        yesButton.interactable = false;
-        noButton.interactable = false;
-
-        StartCoroutine(ProceedToNextDialogue());
-    }
-
-    private IEnumerator ProceedToNextDialogue()
-    {
-        yield return new WaitForSeconds(0.2f); // Short delay before switching dialogues
-        yesButton.interactable = true;
-        noButton.interactable = true;
-        decisionMade = false; // Reset input lock only after transition
         DisplayNextDialogue();
     }
-
 
     public void EndDialogue()
     {
@@ -159,12 +112,6 @@ public class DialogueManager : MonoBehaviour
         PlayerMovement.Instance.EnableMovement(true); // Re-enable movement
     }
 
-    public void OnContinue()
-    {
-        DisplayNextDialogue();
-    }
-
-    // **NEW: Functions for Player Input Component**
     public void OnYesPressed()
     {
         if (dialogueIsActive)
@@ -178,6 +125,23 @@ public class DialogueManager : MonoBehaviour
         if (dialogueIsActive && currentDialogue.hasDecision)
         {
             HandleDecision(false); // Equivalent to pressing No button
+        }
+    }
+
+    public bool getDialogueIsActive()
+    {
+        return dialogueIsActive;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && dialogueIsActive == true)
+        {
+            OnYesPressed();
+        }
+        else if (Input.GetKeyDown(KeyCode.G) && dialogueIsActive == true)
+        {
+            OnNoPressed();
         }
     }
 }

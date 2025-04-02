@@ -37,8 +37,6 @@ public class WanderingSoul : MonoBehaviour
     {
         float OpacitySanity = (PlayerStats.Instance.getSanity()*-0.005f) + 0.75f;
         Color newColor = sr.color;
-        Debug.Log("Opacity : "+OpacitySanity);
-        Debug.Log("GetSanity : "+PlayerStats.Instance.getSanity());
         newColor.a = OpacitySanity;
         sr.color = newColor;
     }

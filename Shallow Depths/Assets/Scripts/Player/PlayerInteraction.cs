@@ -30,18 +30,22 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    public void OnInteract(InputAction.CallbackContext context)
+    public void OnInteract()
     {
-        if (context.performed)
+        if (_nearbyNPC == null)
         {
-            if (_nearbyNPC == null)
-            {
-                Debug.LogError("OnInteract: No NPC nearby!");
-                return;
-            }
+            Debug.LogError("OnInteract: No NPC nearby!");
+            return;
+        }
 
-            Debug.Log("Interacting with NPC: " + _nearbyNPC.name);
-            _nearbyNPC.TriggerDialogue();
+        _nearbyNPC.TriggerDialogue();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) || DialogueManager.Instance.getDialogueIsActive())
+        {
+            OnInteract();
         }
     }
 }
