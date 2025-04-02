@@ -28,9 +28,15 @@ public class WanderingSoul : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("PlayerReflection")){
-            GlobalVariable.Instance.karma -= 10;
-            Destroy(this.gameObject);
+        if (other.CompareTag("Player"))
+        {
+            // Implement damage logic here
+            Debug.Log("Player Hit!");
+            Destroy(gameObject);
+        }
+        else if (!other.CompareTag("Enemies")) // Prevent self-hit
+        {
+            Destroy(gameObject);
         }
     }
     void OpacitySanity()

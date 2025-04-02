@@ -3,14 +3,19 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private SpriteRenderer sr;
-    public float lifetime = 3f; // Destroy after 3 seconds
-
     private Rigidbody2D rb;
+    public float lifetime = 20f; // Destroy after 3 seconds
 
     void Start()
     {
         Destroy(gameObject, lifetime); // Auto-destroy after a while
         sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+
+        if (rb.linearVelocity == null)
+        {
+            rb.linearVelocity = transform.right * 5f; // Adjust speed as needed
+        }
     }
     void Update()
     {

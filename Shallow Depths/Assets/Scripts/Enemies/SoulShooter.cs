@@ -7,7 +7,7 @@ public class SoulShooter : MonoBehaviour
     public float bulletSpeed = 5f;
     public float finalBulletSpeed;
     public float finalFireRate;
-    public float detectionRange = 10f;
+    public float detectionRange = 12f;
     private float nextFireTime;
     private bool isAggressive = false;
     
@@ -77,6 +77,19 @@ public class SoulShooter : MonoBehaviour
     {
         finalBulletSpeed = Mathf.Lerp(9f, 5f, PlayerStats.Instance.getSanity() / 100f);
         finalFireRate = Mathf.Lerp(1f, 2f, PlayerStats.Instance.getSanity() / 100f);
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Implement damage logic here
+            Debug.Log("Player Hit!");
+            Destroy(gameObject);
+        }
+        else if (!other.CompareTag("Enemies")) // Prevent self-hit
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
