@@ -20,25 +20,7 @@
                     "id": "ea9ca965-72ca-4fa0-bf6a-c45f0473b134",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Yes Dialogue",
-                    "type": "Button",
-                    "id": "7dac6e1c-e84c-4065-895f-653d6b35239c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "No Dialogue",
-                    "type": "Button",
-                    "id": "617b2a17-5266-480c-a0c2-e774aaf5ccc8",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
@@ -106,28 +88,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f1f1396a-dbc1-4e4d-8b2d-a86444d73658",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Yes Dialogue",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c33a716e-2353-4fdc-ba86-12c3a99ad30c",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "No Dialogue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
