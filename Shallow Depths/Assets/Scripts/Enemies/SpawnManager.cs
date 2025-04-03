@@ -54,10 +54,21 @@ public class SpawnManager : MonoBehaviour
 
     Vector2 GetSpawnPosition()
     {
-        float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad; // Random angle in radians
-        float radius = 10f; // Fixed radius
-        return new Vector2(player.position.x + Mathf.Cos(angle) * radius, 
-                           player.position.y + Mathf.Sin(angle) * radius);
+        float radius = 10f; // Fixed spawn radius
+        float checkRadius = 1f; // Radius to check for colliders
+        Vector2 spawnPos;
+
+        int attempts = 10; // Max attempts to find a valid spawn position
+        do
+        {
+            float angle = Random.Range(0f, 360f) * Mathf.Deg2Rad;
+            spawnPos = new Vector2(player.position.x + Mathf.Cos(angle) * radius, 
+                                player.position.y + Mathf.Sin(angle) * radius);
+            attempts--;
+        }
+        while (Physics2D.OverlapCircle(spawnPos, checkRadius) != null && attempts > 0);
+
+        return spawnPos;
     }
 }
 

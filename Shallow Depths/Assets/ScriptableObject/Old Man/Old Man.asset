@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Old Man
   m_EditorClassIdentifier: 
   characterName: Old Man
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: -1442720462, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: "Ah\u2026 the waves have whispered their secrets for decades. Tell me,
     traveler, do you appreciate the beauty before you?"
   hasDecision: 1

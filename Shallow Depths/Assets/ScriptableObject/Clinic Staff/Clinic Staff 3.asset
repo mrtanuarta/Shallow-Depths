@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Clinic Staff 3
   m_EditorClassIdentifier: 
   characterName: Clinic Staff
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: -394834163, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: Have a good day, sir!
   hasDecision: 0
   yesSentence: 
