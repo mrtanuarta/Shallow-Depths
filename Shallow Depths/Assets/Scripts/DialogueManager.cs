@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Button noButton;
     [SerializeField] private TMP_Text yesButtonText;
     [SerializeField] private TMP_Text noButtonText;
+    [SerializeField] private AudioClip clickSound;
 
     private Queue<TextDialogue> _dialogues = new Queue<TextDialogue>();
     private bool dialogueIsActive = false;
@@ -56,6 +57,8 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextDialogue()
     {
+        AudioManager.Instance.PlaySFX(clickSound);
+        
         if (_dialogues.Count == 0)
         {
             EndDialogue();
