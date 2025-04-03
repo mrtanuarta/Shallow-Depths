@@ -7,7 +7,7 @@ public class NPCDialogue : MonoBehaviour
     [SerializeField] private TextDialogue[] finalDialogues;
     [SerializeField] private GameObject _InteractUI;
 
-    private bool finalDialogue = false;
+    [SerializeField] private bool finalDialogue = false;
 
     private Collider2D Collider2D;
     private GameObject _currentInteractUI;
