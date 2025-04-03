@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Axe
   m_EditorClassIdentifier: 
   characterName: Axe
-  characterSprite: {fileID: 10675719, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
+  characterSprite: {fileID: -284491199, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: Oh hey, this is the axe that the lumberjack talked about
   hasDecision: 1
   yesSentence: Pick it up
   YesSanityChange: 0
   YesKarmaChange: 0
-  YesItemToGive: 
-  YesItemAmount: 0
+  YesItemToGive: Axe
+  YesItemAmount: 1
   YesItemToTake: 
   YesItemTakeAmount: 0
   YesFinalDialogue: 1

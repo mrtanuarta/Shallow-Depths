@@ -16,7 +16,7 @@ MonoBehaviour:
   characterSprite: {fileID: 10675719, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: Hey bud, I'm looking for my axe in 1 of the islands...
   hasDecision: 0
-  yesSentence: 
+  yesSentence: Ok
   YesSanityChange: 0
   YesKarmaChange: 0
   YesItemToGive: 

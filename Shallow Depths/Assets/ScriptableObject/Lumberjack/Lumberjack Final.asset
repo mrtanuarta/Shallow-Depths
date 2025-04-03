@@ -16,7 +16,7 @@ MonoBehaviour:
   characterSprite: {fileID: 10675719, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: Thanks again bud for helping me find my axe :D
   hasDecision: 0
-  yesSentence: 
+  yesSentence: Ok
   YesSanityChange: 0
   YesKarmaChange: 0
   YesItemToGive: 

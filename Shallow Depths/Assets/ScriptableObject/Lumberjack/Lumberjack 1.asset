@@ -25,8 +25,8 @@ MonoBehaviour:
   YesItemTakeAmount: 1
   YesFinalDialogue: 1
   noSentence: Haven't seen it...
-  NoSanityChange: -5
-  NoKarmaChange: -10
+  NoSanityChange: 0
+  NoKarmaChange: 0
   NoItemToGive: 
   NoItemAmount: 0
   NoItemToTake: 

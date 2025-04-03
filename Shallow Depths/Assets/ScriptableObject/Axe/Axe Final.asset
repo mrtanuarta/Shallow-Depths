@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Axe Final
   m_EditorClassIdentifier: 
   characterName: Axe
-  characterSprite: {fileID: 10675719, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
+  characterSprite: {fileID: -284491199, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: You already picked up the axe
   hasDecision: 0
   yesSentence: Ok
