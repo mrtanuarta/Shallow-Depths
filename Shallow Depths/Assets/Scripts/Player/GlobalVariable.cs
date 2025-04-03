@@ -13,5 +13,9 @@ public class GlobalVariable : MonoBehaviour
 
     [Header("PlayerStatus")]
     public bool onWater = true;
-    public int karma = 0; 
+    public int karma = 0;
+    public void addKarma(int karmaAmt){
+        karma += karmaAmt;
+        karma = Mathf.Clamp(karmaAmt,-100, 100);
+    }
 }

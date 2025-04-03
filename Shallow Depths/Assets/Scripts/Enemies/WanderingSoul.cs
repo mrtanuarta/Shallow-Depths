@@ -32,6 +32,7 @@ public class WanderingSoul : MonoBehaviour
         {
             // Implement damage logic here
             Debug.Log("Player Hit!");
+            GlobalVariable.Instance.addKarma(-10);
             Destroy(gameObject);
         }
         else if (!other.CompareTag("Enemies")&& !other.CompareTag("LandBorder")) // Prevent self-hit
