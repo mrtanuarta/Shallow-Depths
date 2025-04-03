@@ -4,16 +4,28 @@ using UnityEngine.UIElements;
 public class NPCDialogue : MonoBehaviour
 {
     [SerializeField] private TextDialogue[] dialogues; // Array of multiple dialogues
+    [SerializeField] private TextDialogue[] finalDialogues;
     [SerializeField] private GameObject _InteractUI;
+
+    private bool finalDialogue = false;
+
     private Collider2D Collider2D;
     private GameObject _currentInteractUI;
+
     void Start()
     {
         Collider2D = GetComponent<Collider2D>();
     }
     public void TriggerDialogue()
     {
-        DialogueManager.Instance.StartDialogue(dialogues);
+        if (!finalDialogue) 
+        { 
+            DialogueManager.Instance.StartDialogue(dialogues, this);
+        }
+        else
+        {
+            DialogueManager.Instance.StartDialogue(finalDialogues, this);
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,5 +39,10 @@ public class NPCDialogue : MonoBehaviour
         if (_currentInteractUI!=null){
             Destroy(_currentInteractUI);
         }
+    }
+
+    public void setFinalDialogue()
+    {
+        finalDialogue = true;
     }
 }

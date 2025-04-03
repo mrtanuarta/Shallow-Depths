@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f67728fc44ce8d44951bec2af3846f6, type: 3}
-  m_Name: Lumberjack 1
+  m_Name: Axe Final
   m_EditorClassIdentifier: 
-  characterName: Lumberjack
+  characterName: Axe
   characterSprite: {fileID: 10675719, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
-  sentence: Have you seen my axe?
-  hasDecision: 1
-  yesSentence: Here it is :D
-  YesSanityChange: -10
-  YesKarmaChange: 10
+  sentence: You already picked up the axe
+  hasDecision: 0
+  yesSentence: Ok
+  YesSanityChange: 0
+  YesKarmaChange: 0
   YesItemToGive: 
   YesItemAmount: 0
-  YesItemToTake: Axe
-  YesItemTakeAmount: 1
-  YesFinalDialogue: 1
-  noSentence: Haven't seen it...
-  NoSanityChange: -5
-  NoKarmaChange: -10
+  YesItemToTake: 
+  YesItemTakeAmount: 0
+  YesFinalDialogue: 0
+  noSentence: 
+  NoSanityChange: 0
+  NoKarmaChange: 0
   NoItemToGive: 
   NoItemAmount: 0
   NoItemToTake: 

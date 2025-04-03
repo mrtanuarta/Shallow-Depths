@@ -25,6 +25,8 @@ public class TextDialogue : ScriptableObject
     public string YesItemToTake;
     public int YesItemTakeAmount;
 
+    public bool YesFinalDialogue;
+
     [Header("No Decision")]
     public string noSentence;
 
@@ -38,4 +40,6 @@ public class TextDialogue : ScriptableObject
     // Item requirements (Takes items from player)
     public string NoItemToTake;
     public int NoItemTakeAmount;
+
+    public bool NoFinalDialogue;
 }

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Lumberjack
   m_EditorClassIdentifier: 
   characterName: Lumberjack
-  characterSprite: {fileID: 0}
-  sentence: Hey bud, I'm looking for several logs for me to use later tonight as
-    firewood.
+  characterSprite: {fileID: 10675719, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
+  sentence: Hey bud, I'm looking for my axe in 1 of the islands...
   hasDecision: 0
   yesSentence: 
   YesSanityChange: 0
@@ -24,6 +23,7 @@ MonoBehaviour:
   YesItemAmount: 0
   YesItemToTake: 
   YesItemTakeAmount: 0
+  YesFinalDialogue: 0
   noSentence: 
   NoSanityChange: 0
   NoKarmaChange: 0
@@ -31,3 +31,4 @@ MonoBehaviour:
   NoItemAmount: 0
   NoItemToTake: 
   NoItemTakeAmount: 0
+  NoFinalDialogue: 0

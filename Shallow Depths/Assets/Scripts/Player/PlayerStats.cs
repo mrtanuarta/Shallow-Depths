@@ -65,8 +65,13 @@ public class PlayerStats : MonoBehaviour
 
     public bool HasItem(string itemName, int amount = 1)
     {
-        return inventory.ContainsKey(itemName) && inventory[itemName] >= amount;
+        if (inventory.ContainsKey(itemName) && inventory[itemName] >= amount)
+        {
+            return true; // Player has enough of the item
+        }
+        return false; // Not enough or item doesn't exist
     }
+
 
     public void RemoveItem(string itemName, int amount)
     {
