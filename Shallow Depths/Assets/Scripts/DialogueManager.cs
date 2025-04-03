@@ -36,8 +36,8 @@ public class DialogueManager : MonoBehaviour
         yesButton.gameObject.SetActive(true); // Yes button is always visible
         noButton.gameObject.SetActive(false);
 
-        yesButton.onClick.AddListener(() => HandleDecision(true));
-        noButton.onClick.AddListener(() => HandleDecision(false));
+        yesButton.onClick.AddListener(() => OnYesPressed());
+        noButton.onClick.AddListener(() => OnNoPressed());
     }
 
     public void StartDialogue(TextDialogue[] dialogues, NPCDialogue npc = null)
