@@ -19,10 +19,11 @@ MonoBehaviour:
   yesSentence: Give grandma's meds
   YesSanityChange: 20
   YesKarmaChange: -20
-  YesItemToGive: 
-  YesItemAmount: 0
+  YesItemToGive: Kid's Pendant
+  YesItemAmount: 1
   YesItemToTake: Grandma's Meds
   YesItemTakeAmount: 1
+  YesFinalDialogue: 1
   noSentence: I can't help!
   NoSanityChange: -20
   NoKarmaChange: 20
@@ -30,3 +31,4 @@ MonoBehaviour:
   NoItemAmount: 0
   NoItemToTake: 
   NoItemTakeAmount: 0
+  NoFinalDialogue: 0

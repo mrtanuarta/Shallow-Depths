@@ -23,6 +23,7 @@ MonoBehaviour:
   YesItemAmount: 1
   YesItemToTake: 
   YesItemTakeAmount: 0
+  YesFinalDialogue: 1
   noSentence: No
   NoSanityChange: 0
   NoKarmaChange: 0
@@ -30,3 +31,4 @@ MonoBehaviour:
   NoItemAmount: 0
   NoItemToTake: 
   NoItemTakeAmount: 0
+  NoFinalDialogue: 0
