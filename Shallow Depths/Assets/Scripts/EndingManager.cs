@@ -13,9 +13,10 @@ public class EndingManager : MonoBehaviour
 
     [Header("Ending Sequences")]
     [SerializeField] private EndingDialogueSequence ending1Sequence;  // Brought meds
-    [SerializeField] private EndingDialogueSequence ending2Sequence;  // Low sanity
-    [SerializeField] private EndingDialogueSequence ending3Sequence;  // High sanity
-    [SerializeField] private EndingDialogueSequence defaultEndingSequence;  // Failsafe
+    [SerializeField] private EndingDialogueSequence ending2Sequence;  // High karma
+    [SerializeField] private EndingDialogueSequence ending3Sequence;  // Low karma
+    [SerializeField] private EndingDialogueSequence ending4Sequence;  // Meds given to kid
+    [SerializeField] private EndingDialogueSequence ending5Sequence;  // Flower ending
 
     private bool EndingTriggered = false;
 
@@ -23,6 +24,7 @@ public class EndingManager : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
+
         else
             Destroy(gameObject);
     }
@@ -60,27 +62,34 @@ public class EndingManager : MonoBehaviour
         // Determine which ending to play
         if (PlayerStats.Instance != null)
         {
-            if (PlayerStats.Instance.HasItem("Grandma's Meds"))
+            if (PlayerStats.Instance.HasItem("Flower"))
             {
-                EndingDialogueManager.StartDialogue(ending1Sequence.dialogues);
+                EndingDialogueManager.StartDialogue(ending5Sequence.dialogues);
+                GlobalVariable.Instance.UnlockEnding(5);
             }
-            else if (PlayerStats.Instance.sanity < 20)
+            else if (PlayerStats.Instance.HasItem("Grandma's Meds"))
             {
-                EndingDialogueManager.StartDialogue(ending2Sequence.dialogues);
+                if (PlayerStats.Instance.karma > 40)
+                {
+                    EndingDialogueManager.StartDialogue(ending2Sequence.dialogues);
+                    GlobalVariable.Instance.UnlockEnding(2);
+                }
+                else
+                {
+                    EndingDialogueManager.StartDialogue(ending1Sequence.dialogues);
+                    GlobalVariable.Instance.UnlockEnding(1);
+                }
             }
-            else if (PlayerStats.Instance.sanity > 80)
+            else if (PlayerStats.Instance.HasItem("Kid's Pendant"))
             {
-                EndingDialogueManager.StartDialogue(ending3Sequence.dialogues);
+                EndingDialogueManager.StartDialogue(ending4Sequence.dialogues);
+                GlobalVariable.Instance.UnlockEnding(4);
             }
             else
             {
-                EndingDialogueManager.StartDialogue(defaultEndingSequence.dialogues);
+                EndingDialogueManager.StartDialogue(ending3Sequence.dialogues);
+                GlobalVariable.Instance.UnlockEnding(3);
             }
-        }
-        else
-        {
-            Debug.LogError("PlayerStats instance not found! Using default ending.");
-            EndingDialogueManager.StartDialogue(defaultEndingSequence.dialogues);
         }
     }
 
