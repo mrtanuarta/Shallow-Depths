@@ -18,7 +18,7 @@ public class NPCDialogue : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (_currentInteractUI == null){
-            _currentInteractUI = Instantiate(_InteractUI, transform.position + new Vector3(0,2,0), Quaternion.identity);
+            _currentInteractUI = Instantiate(_InteractUI, transform.position + new Vector3(0,1,0), Quaternion.identity);
         }
         
     }
