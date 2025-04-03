@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ending 4 1
   m_EditorClassIdentifier: 
   characterName: Ending 4
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: -1861902431, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: "Your grandma is nowhere to be found, you get worried and eventually
     realize what might\u2019ve happened."
   hasDecision: 0

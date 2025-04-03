@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ending 3 2
   m_EditorClassIdentifier: 
   characterName: Ending 3
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: -1861902431, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: When you come out again, all these thoughts rush back into your mind,
   hasDecision: 0
   yesSentence: Next

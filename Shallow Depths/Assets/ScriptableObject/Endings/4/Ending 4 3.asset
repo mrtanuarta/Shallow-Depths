@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ending 4 3
   m_EditorClassIdentifier: 
   characterName: Ending 4
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: -1861902431, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: "It dispels the reflection zone, and you hear a faint whisper of \u201CIt\u2019s
     ok son, I forgive you.\u201D"
   hasDecision: 0

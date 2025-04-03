@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ending 1 1
   m_EditorClassIdentifier: 
   characterName: Ending 1
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: -1033769235, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: You reach your grandma, and you give her the meds. Her eyes turned light,
     and dispels your reflection.
   hasDecision: 0
