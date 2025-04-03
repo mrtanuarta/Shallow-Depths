@@ -6,6 +6,7 @@ public class EndingDialogueManager : DialogueManager
     public static EndingDialogueManager Instance; // Singleton instance
 
     [SerializeField] private string sceneToLoadAfterEnding = "Main Menu"; // Set this in Inspector
+    private int ending;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class EndingDialogueManager : DialogueManager
     public void StartEndingDialogue(TextDialogue[] dialogues)
     {
         Debug.Log("Starting Ending Dialogue...");
+        this.ending = ending;
         StartDialogue(dialogues); // Calls the base class method to start dialogue
     }
 
@@ -26,6 +28,7 @@ public class EndingDialogueManager : DialogueManager
         base.EndDialogue(); // Calls the normal EndDialogue from DialogueManager
 
         Debug.Log("Ending sequence finished! Loading next scene...");
+
         LoadEndingScene();
     }
 
