@@ -12,16 +12,16 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
-        EU = GlobalVariable.Instance.endingUnlocked;
+        updateText(); 
         FG = GlobalVariable.Instance.FinishedGame;
-        updateText();
+        EU = GlobalVariable.Instance.endingUnlocked;
     }
-
     void updateText(){
         FinishedGame.text = "Times Game Finished > "+FG.ToString();
         EndingsUnlocked.text = "Endings Unlocked > "+EU.ToString()+"/5";

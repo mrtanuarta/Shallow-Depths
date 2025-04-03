@@ -28,19 +28,18 @@ public class GlobalVariable : MonoBehaviour
     [SerializeField] private bool ending3 = false;
     [SerializeField] private bool ending4 = false;
     [SerializeField] private bool ending5 = false;
-    int intEnding1, intEnding2, intEnding3, intEnding4, intEnding5;
 
-    private void Start()
-    {
-        intEnding1 = Convert.ToInt32(ending1);
-        intEnding2 = Convert.ToInt32(ending2);
-        intEnding3 = Convert.ToInt32(ending3);
-        intEnding4 = Convert.ToInt32(ending4);
-        intEnding5 = Convert.ToInt32(ending5);
-    }
     void Update()
     {
-        endingUnlocked = intEnding1+intEnding2+intEnding3+intEnding4+intEnding5;
+        // Update int values dynamically
+        int intEnding1 = Convert.ToInt32(ending1);
+        int intEnding2 = Convert.ToInt32(ending2);
+        int intEnding3 = Convert.ToInt32(ending3);
+        int intEnding4 = Convert.ToInt32(ending4);
+        int intEnding5 = Convert.ToInt32(ending5);
+
+        // Sum up the unlocked endings
+        endingUnlocked = intEnding1 + intEnding2 + intEnding3 + intEnding4 + intEnding5;
     }
 
     public void UnlockEnding(int ending)
