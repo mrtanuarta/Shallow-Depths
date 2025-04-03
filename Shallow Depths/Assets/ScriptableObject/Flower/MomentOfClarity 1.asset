@@ -10,19 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f67728fc44ce8d44951bec2af3846f6, type: 3}
-  m_Name: Ferry
+  m_Name: MomentOfClarity 1
   m_EditorClassIdentifier: 
-  characterName: You
-  characterSprite: {fileID: 0}
-  sentence: Are you sure to leave this island towards your grandma?
-  hasDecision: 1
-  yesSentence: 
+  characterName: Flower
+  characterSprite: {fileID: -1500553501, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
+  sentence: You picked up the flower
+  hasDecision: 0
+  yesSentence: Ok
   YesSanityChange: 0
   YesKarmaChange: 0
   YesItemToGive: 
   YesItemAmount: 0
   YesItemToTake: 
   YesItemTakeAmount: 0
+  YesFinalDialogue: 0
   noSentence: 
   NoSanityChange: 0
   NoKarmaChange: 0
@@ -30,3 +31,4 @@ MonoBehaviour:
   NoItemAmount: 0
   NoItemToTake: 
   NoItemTakeAmount: 0
+  NoFinalDialogue: 0

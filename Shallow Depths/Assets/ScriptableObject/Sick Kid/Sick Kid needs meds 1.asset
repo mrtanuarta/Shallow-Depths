@@ -24,9 +24,9 @@ MonoBehaviour:
   YesItemToTake: 
   YesItemTakeAmount: 0
   YesFinalDialogue: 0
-  noSentence: I can't help!
-  NoSanityChange: -20
-  NoKarmaChange: 20
+  noSentence: 
+  NoSanityChange: 0
+  NoKarmaChange: 0
   NoItemToGive: 
   NoItemAmount: 0
   NoItemToTake: 

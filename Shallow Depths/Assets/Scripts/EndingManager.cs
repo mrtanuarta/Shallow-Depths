@@ -10,6 +10,7 @@ public class EndingManager : MonoBehaviour
     [SerializeField] private CanvasGroup fadeScreen;
     [SerializeField] private GameObject grandmaSprite;
     [SerializeField] private DialogueManager EndingDialogueManager;
+    [SerializeField] private GameObject _InteractUI;
 
     [Header("Ending Sequences")]
     [SerializeField] private EndingDialogueSequence ending1Sequence;  // High karma
@@ -20,6 +21,8 @@ public class EndingManager : MonoBehaviour
 
     private bool EndingTriggered = false;
 
+    private GameObject _currentInteractUI;
+
     private void Awake()
     {
         if (Instance == null)
@@ -28,7 +31,21 @@ public class EndingManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (_currentInteractUI == null)
+        {
+            _currentInteractUI = Instantiate(_InteractUI, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        }
 
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (_currentInteractUI != null)
+        {
+            Destroy(_currentInteractUI);
+        }
+    }
     public void OnInteract()
     {
         EndingTriggered = true;
@@ -72,7 +89,7 @@ public class EndingManager : MonoBehaviour
                 EndingDialogueManager.StartDialogue(ending4Sequence.dialogues);
                 GlobalVariable.Instance.UnlockEnding(4);
             }
-            else if (PlayerStats.Instance.karma <= 40 || !PlayerStats.Instance.HasItem("Grandma's Meds"))
+            else if (PlayerStats.Instance.karma <= -40 || !PlayerStats.Instance.HasItem("Grandma's Meds"))
             {
                 EndingDialogueManager.StartDialogue(ending2Sequence.dialogues);
                 GlobalVariable.Instance.UnlockEnding(2);
