@@ -9,7 +9,7 @@ public class EndingManager : MonoBehaviour
 
     [SerializeField] private CanvasGroup fadeScreen;
     [SerializeField] private GameObject grandmaSprite;
-    [SerializeField] private DialogueManager dialogueManager;
+    [SerializeField] private DialogueManager EndingDialogueManager;
 
     [Header("Ending Sequences")]
     [SerializeField] private EndingDialogueSequence ending1Sequence;  // Brought meds
@@ -17,8 +17,7 @@ public class EndingManager : MonoBehaviour
     [SerializeField] private EndingDialogueSequence ending3Sequence;  // High sanity
     [SerializeField] private EndingDialogueSequence defaultEndingSequence;  // Failsafe
 
-    private bool hasTriggered = false;
-    private bool isPlayerInRange = false; // Tracks if the player is in range
+    private bool EndingTriggered = false;
 
     private void Awake()
     {
@@ -28,30 +27,11 @@ public class EndingManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void OnInteract(InputAction.CallbackContext context)
+    public void OnInteract()
     {
-        if (context.performed && isPlayerInRange && !hasTriggered)
-        {
-            hasTriggered = true;
-            Debug.Log("Player interacted to trigger the ending!");
-            StartCoroutine(FadeToBlack());
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerInRange = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            isPlayerInRange = false;
-        }
+        EndingTriggered = true;
+        Debug.Log("Player interacted to trigger the ending!");
+        StartCoroutine(FadeToBlack());
     }
 
     private IEnumerator FadeToBlack()
@@ -82,26 +62,30 @@ public class EndingManager : MonoBehaviour
         {
             if (PlayerStats.Instance.HasItem("Grandma's Meds"))
             {
-                dialogueManager.StartDialogue(ending1Sequence.dialogues);
+                EndingDialogueManager.StartDialogue(ending1Sequence.dialogues);
             }
             else if (PlayerStats.Instance.sanity < 20)
             {
-                dialogueManager.StartDialogue(ending2Sequence.dialogues);
+                EndingDialogueManager.StartDialogue(ending2Sequence.dialogues);
             }
             else if (PlayerStats.Instance.sanity > 80)
             {
-                dialogueManager.StartDialogue(ending3Sequence.dialogues);
+                EndingDialogueManager.StartDialogue(ending3Sequence.dialogues);
             }
             else
             {
-                dialogueManager.StartDialogue(defaultEndingSequence.dialogues);
+                EndingDialogueManager.StartDialogue(defaultEndingSequence.dialogues);
             }
         }
         else
         {
             Debug.LogError("PlayerStats instance not found! Using default ending.");
-            dialogueManager.StartDialogue(defaultEndingSequence.dialogues);
+            EndingDialogueManager.StartDialogue(defaultEndingSequence.dialogues);
         }
     }
 
+    public bool getEndingTriggered()
+    {
+        return EndingTriggered;
+    }
 }

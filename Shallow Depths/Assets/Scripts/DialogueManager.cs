@@ -105,7 +105,7 @@ public class DialogueManager : MonoBehaviour
         DisplayNextDialogue();
     }
 
-    public void EndDialogue()
+    public virtual void EndDialogue()
     {
         dialogueUI.SetActive(false);
         dialogueIsActive = false;
