@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
 
     // Sanity System
     public int sanity = 100;
+    public int karma = 0;
 
     // Inventory System
     private Dictionary<string, int> inventory = new Dictionary<string, int>();
@@ -89,5 +90,9 @@ public class PlayerStats : MonoBehaviour
             yield return new WaitForSeconds(1.5f); // Wait for 2 seconds
 
         }
+    }
+    public void addKarma(int karmaAmt){
+        karma += karmaAmt;
+        karma = Mathf.Clamp(karmaAmt,-100, 100);
     }
 }
