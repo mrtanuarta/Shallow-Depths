@@ -1,11 +1,12 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private Text FinishedGame;
-    [SerializeField] private Text EndingsUnlocked;
+    [SerializeField] private TextMeshProUGUI FinishedGame;
+    [SerializeField] private TextMeshProUGUI EndingsUnlocked;
     private int EU = 0;
     private int FG = 0;
 

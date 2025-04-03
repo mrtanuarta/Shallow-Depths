@@ -5264,8 +5264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b603cd420fc274cb8db59fbc0ba84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FinishedGame: {fileID: 0}
-  EndingsUnlocked: {fileID: 0}
+  FinishedGame: {fileID: 1436188253}
+  EndingsUnlocked: {fileID: 807532722}
 --- !u!1 &1532895447
 GameObject:
   m_ObjectHideFlags: 0
