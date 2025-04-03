@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ending 3 1
   m_EditorClassIdentifier: 
   characterName: Ending 3
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: -1861902431, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: "You get to your grandma\u2019s house, she takes the meds, the reflection
     part disappears when you\u2019re in her house."
   hasDecision: 0

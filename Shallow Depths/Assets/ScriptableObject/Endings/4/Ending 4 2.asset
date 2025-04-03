@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ending 4 2
   m_EditorClassIdentifier: 
   characterName: Ending 4
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: -1861902431, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: You start to fall into despair as the reflection zone enlarges, but a
     familiar presence touches you.
   hasDecision: 0

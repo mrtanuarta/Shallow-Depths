@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ending 2 Sequence
   m_EditorClassIdentifier: 
   dialogues:
-  - {fileID: 11400000, guid: c1b49830875a5b04abdfcb172ebadfe0, type: 2}
-  - {fileID: 11400000, guid: 864e1b194471e0b4fbace67398b307a0, type: 2}
-  - {fileID: 11400000, guid: bb593f48e01f21345adb5b1c709e977b, type: 2}
+  - {fileID: 11400000, guid: de82c55512358ac46baa94e5e608b600, type: 2}
+  - {fileID: 11400000, guid: 8e55a2addb3ca9e4a97fc98b36e8fcbb, type: 2}
+  - {fileID: 11400000, guid: e8a9543c9e4a09644b8c51dcb2339cb3, type: 2}

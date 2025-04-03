@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f67728fc44ce8d44951bec2af3846f6, type: 3}
   m_Name: Ending 5 1
   m_EditorClassIdentifier: 
-  characterName: 
-  characterSprite: {fileID: 0}
+  characterName: Ending 5
+  characterSprite: {fileID: -1033769235, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: "You go to your grandma\u2019s house, put the flower in a vase."
   hasDecision: 0
   yesSentence: 

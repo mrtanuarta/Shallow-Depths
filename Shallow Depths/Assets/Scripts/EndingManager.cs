@@ -12,9 +12,9 @@ public class EndingManager : MonoBehaviour
     [SerializeField] private DialogueManager EndingDialogueManager;
 
     [Header("Ending Sequences")]
-    [SerializeField] private EndingDialogueSequence ending1Sequence;  // Brought meds
-    [SerializeField] private EndingDialogueSequence ending2Sequence;  // High karma
-    [SerializeField] private EndingDialogueSequence ending3Sequence;  // Low karma
+    [SerializeField] private EndingDialogueSequence ending1Sequence;  // High karma
+    [SerializeField] private EndingDialogueSequence ending2Sequence;  // Low karma
+    [SerializeField] private EndingDialogueSequence ending3Sequence;  // Brought meds
     [SerializeField] private EndingDialogueSequence ending4Sequence;  // Meds given to kid
     [SerializeField] private EndingDialogueSequence ending5Sequence;  // Flower ending
 
@@ -67,28 +67,28 @@ public class EndingManager : MonoBehaviour
                 EndingDialogueManager.StartDialogue(ending5Sequence.dialogues);
                 GlobalVariable.Instance.UnlockEnding(5);
             }
-            else if (PlayerStats.Instance.HasItem("Grandma's Meds"))
-            {
-                if (PlayerStats.Instance.karma > 40)
-                {
-                    EndingDialogueManager.StartDialogue(ending2Sequence.dialogues);
-                    GlobalVariable.Instance.UnlockEnding(2);
-                }
-                else
-                {
-                    EndingDialogueManager.StartDialogue(ending1Sequence.dialogues);
-                    GlobalVariable.Instance.UnlockEnding(1);
-                }
-            }
             else if (PlayerStats.Instance.HasItem("Kid's Pendant"))
             {
                 EndingDialogueManager.StartDialogue(ending4Sequence.dialogues);
                 GlobalVariable.Instance.UnlockEnding(4);
             }
-            else
+            else if (PlayerStats.Instance.karma <= 40 || !PlayerStats.Instance.HasItem("Grandma's Meds"))
             {
-                EndingDialogueManager.StartDialogue(ending3Sequence.dialogues);
-                GlobalVariable.Instance.UnlockEnding(3);
+                EndingDialogueManager.StartDialogue(ending2Sequence.dialogues);
+                GlobalVariable.Instance.UnlockEnding(2);
+            }
+            else if (PlayerStats.Instance.HasItem("Grandma's Meds"))
+            {
+                if (PlayerStats.Instance.karma >= 40)
+                {
+                    EndingDialogueManager.StartDialogue(ending1Sequence.dialogues);
+                    GlobalVariable.Instance.UnlockEnding(1);
+                }
+                else
+                {
+                    EndingDialogueManager.StartDialogue(ending3Sequence.dialogues);
+                    GlobalVariable.Instance.UnlockEnding(3);
+                }
             }
         }
     }
