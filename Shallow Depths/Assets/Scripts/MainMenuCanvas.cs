@@ -19,6 +19,8 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         updateText(); 
+        FG = GlobalVariable.Instance.FinishedGame;
+        EU = GlobalVariable.Instance.endingUnlocked;
     }
     void updateText(){
         FinishedGame.text = "Times Game Finished > "+FG.ToString();
