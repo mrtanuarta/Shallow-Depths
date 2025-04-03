@@ -86,7 +86,7 @@ public class SoulShooter : MonoBehaviour
             Debug.Log("Player Hit!");
             Destroy(gameObject);
         }
-        else if (!other.CompareTag("Enemies")) // Prevent self-hit
+        else if (!other.CompareTag("Enemies") && !other.CompareTag("LandBorder")) // Prevent self-hit
         {
             Destroy(gameObject);
         }
