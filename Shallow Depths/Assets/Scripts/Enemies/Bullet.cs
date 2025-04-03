@@ -42,7 +42,7 @@ public class Bullet : MonoBehaviour
             PlayerStats.Instance.addKarma(-5);
             Destroy(gameObject);
         }
-        else if (!other.CompareTag("Enemies") && !other.CompareTag("LandBorder")) // Prevent self-hit
+        else if (!other.CompareTag("Enemies") && !other.CompareTag("LandBorder") && !other.CompareTag("Player")) // Prevent self-hit
         {
             Destroy(gameObject);
         }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Ending 3
   characterSprite: {fileID: 0}
-  sentence: 2
+  sentence: When you come out again, all these thoughts rush back into your mind,
   hasDecision: 0
   yesSentence: Next
   YesSanityChange: 0
@@ -23,6 +23,7 @@ MonoBehaviour:
   YesItemAmount: 0
   YesItemToTake: 
   YesItemTakeAmount: 0
+  YesFinalDialogue: 0
   noSentence: 
   NoSanityChange: 0
   NoKarmaChange: 0
@@ -30,3 +31,4 @@ MonoBehaviour:
   NoItemAmount: 0
   NoItemToTake: 
   NoItemTakeAmount: 0
+  NoFinalDialogue: 0

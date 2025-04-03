@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f67728fc44ce8d44951bec2af3846f6, type: 3}
+  m_Name: Ending 5 1
+  m_EditorClassIdentifier: 
+  characterName: 
+  characterSprite: {fileID: 0}
+  sentence: "You go to your grandma\u2019s house, put the flower in a vase."
+  hasDecision: 0
+  yesSentence: 
+  YesSanityChange: 0
+  YesKarmaChange: 0
+  YesItemToGive: 
+  YesItemAmount: 0
+  YesItemToTake: 
+  YesItemTakeAmount: 0
+  YesFinalDialogue: 0
+  noSentence: 
+  NoSanityChange: 0
+  NoKarmaChange: 0
+  NoItemToGive: 
+  NoItemAmount: 0
+  NoItemToTake: 
+  NoItemTakeAmount: 0
+  NoFinalDialogue: 0

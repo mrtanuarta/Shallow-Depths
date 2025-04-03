@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Ending 2
   characterSprite: {fileID: 0}
-  sentence: 3
+  sentence: You will now drown in your reflection, until all your sins have been
+    atoned for.
   hasDecision: 0
   yesSentence: Next
   YesSanityChange: 0
@@ -23,6 +24,7 @@ MonoBehaviour:
   YesItemAmount: 0
   YesItemToTake: 
   YesItemTakeAmount: 0
+  YesFinalDialogue: 0
   noSentence: 
   NoSanityChange: 0
   NoKarmaChange: 0
@@ -30,3 +32,4 @@ MonoBehaviour:
   NoItemAmount: 0
   NoItemToTake: 
   NoItemTakeAmount: 0
+  NoFinalDialogue: 0

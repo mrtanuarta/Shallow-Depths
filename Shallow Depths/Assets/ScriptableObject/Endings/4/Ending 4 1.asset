@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Ending 4
   characterSprite: {fileID: 0}
-  sentence: 1
+  sentence: "Your grandma is nowhere to be found, you get worried and eventually
+    realize what might\u2019ve happened."
   hasDecision: 0
   yesSentence: Next
   YesSanityChange: 0
@@ -23,6 +24,7 @@ MonoBehaviour:
   YesItemAmount: 0
   YesItemToTake: 
   YesItemTakeAmount: 0
+  YesFinalDialogue: 0
   noSentence: 
   NoSanityChange: 0
   NoKarmaChange: 0
@@ -30,3 +32,4 @@ MonoBehaviour:
   NoItemAmount: 0
   NoItemToTake: 
   NoItemTakeAmount: 0
+  NoFinalDialogue: 0
