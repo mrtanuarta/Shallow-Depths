@@ -95,12 +95,14 @@ public class DialogueManager : MonoBehaviour
         if (isYes)
         {
             PlayerStats.Instance.ModifySanity(currentDialogue.YesSanityChange);
+            PlayerStats.Instance.InteractAddKarma(currentDialogue.YesKarmaChange);
             PlayerStats.Instance.AddItem(currentDialogue.YesItemToGive, currentDialogue.YesItemAmount);
             PlayerStats.Instance.RemoveItem(currentDialogue.YesItemToTake, currentDialogue.YesItemTakeAmount);
         }
         else
         {
             PlayerStats.Instance.ModifySanity(currentDialogue.NoSanityChange);
+            PlayerStats.Instance.InteractAddKarma(currentDialogue.NoKarmaChange);
             PlayerStats.Instance.AddItem(currentDialogue.NoItemToGive, currentDialogue.NoItemAmount);
             PlayerStats.Instance.RemoveItem(currentDialogue.NoItemToTake, currentDialogue.NoItemTakeAmount);
         }
