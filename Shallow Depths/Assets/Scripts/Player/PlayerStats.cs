@@ -12,9 +12,18 @@ public class PlayerStats : MonoBehaviour
 
     // Inventory System
     private Dictionary<string, int> inventory = new Dictionary<string, int>();
+    
     public int getSanity(){
         return sanity;
     }
+
+    [SerializeField] private AudioClip hitSound;
+
+    public void playHitSound()
+    {
+        AudioManager.Instance.PlaySFX(hitSound);
+    }
+
     void Start()
     {
         sanity = 100;
