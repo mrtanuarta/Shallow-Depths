@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Enemies
   - LandBorder
+  - EndingTrigger
   layers:
   - Default
   - TransparentFX
