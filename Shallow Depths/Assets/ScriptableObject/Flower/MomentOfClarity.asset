@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MomentOfClarity
   m_EditorClassIdentifier: 
   characterName: Flower
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: -1500553501, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: You spot a flower on the ground that reminds you of your grandma, you
     pick it up and feel refreshed with energy
   hasDecision: 0

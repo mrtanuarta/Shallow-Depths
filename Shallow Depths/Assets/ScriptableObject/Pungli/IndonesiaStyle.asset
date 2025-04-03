@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IndonesiaStyle
   m_EditorClassIdentifier: 
   characterName: Beggar
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: 252845565, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: A beggar incessantly begs you for money, he won't stop harassing you
     until you give it
   hasDecision: 0

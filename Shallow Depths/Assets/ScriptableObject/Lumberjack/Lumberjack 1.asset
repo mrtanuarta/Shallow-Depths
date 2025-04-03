@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lumberjack 1
   m_EditorClassIdentifier: 
   characterName: Lumberjack
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: 10675719, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: Mind helping me out? You can keep the axe when you're done
   hasDecision: 1
   yesSentence: I'll help

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mysterious Statue 1
   m_EditorClassIdentifier: 
   characterName: Mysterious Statue
-  characterSprite: {fileID: -1270787337, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
+  characterSprite: {fileID: 7642980859614939925, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: 'A strange energy hums within. It speaks: ''Only the worthy may proceed...'''
   hasDecision: 0
   yesSentence: Next

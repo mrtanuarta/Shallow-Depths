@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lumberjack
   m_EditorClassIdentifier: 
   characterName: Lumberjack
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: 10675719, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: Hey bud, I'm looking for several logs for me to use later tonight as
     firewood.
   hasDecision: 0

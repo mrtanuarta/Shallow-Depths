@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cat on a tree
   m_EditorClassIdentifier: 
   characterName: Cat
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: 1817973762, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: Meow!! A cat is stuck on a tree!! Help?
   hasDecision: 1
   yesSentence: Climb tree

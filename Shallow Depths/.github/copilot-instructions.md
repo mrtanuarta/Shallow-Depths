@@ -8,7 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Water, UI, NPC, Objects
 - Active game object:
-  - Name: GlobalVariable
-  - Tag: Untagged
+  - Name: SoulShooter_0 (2)
+  - Tag: Enemies
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sick Kid needs meds
   m_EditorClassIdentifier: 
   characterName: Sick Child
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: 1676847908, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: You see a sick child writhing, what do you do?
   hasDecision: 1
   yesSentence: Give grandma's meds
