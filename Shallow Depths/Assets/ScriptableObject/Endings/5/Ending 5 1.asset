@@ -16,7 +16,7 @@ MonoBehaviour:
   characterSprite: {fileID: -1033769235, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: "You go to your grandma\u2019s house, put the flower in a vase."
   hasDecision: 0
-  yesSentence: 
+  yesSentence: Next
   YesSanityChange: 0
   YesKarmaChange: 0
   YesItemToGive: 

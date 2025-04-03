@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ending 2 3
   m_EditorClassIdentifier: 
   characterName: Ending 2
-  characterSprite: {fileID: 0}
+  characterSprite: {fileID: -1113649064, guid: 5d2820b3a8fcfa3408a3f5fd6913af42, type: 3}
   sentence: You will now drown in your reflection, until all your sins have been
     atoned for.
   hasDecision: 0

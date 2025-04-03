@@ -17,7 +17,7 @@ MonoBehaviour:
   sentence: You open her door, she looks like your grandma in old pictures from 50
     years ago, the sight of her dispels your reflection.
   hasDecision: 0
-  yesSentence: 
+  yesSentence: Next
   YesSanityChange: 0
   YesKarmaChange: 0
   YesItemToGive: 

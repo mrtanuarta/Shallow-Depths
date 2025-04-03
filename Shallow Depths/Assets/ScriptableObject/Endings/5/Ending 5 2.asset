@@ -17,7 +17,7 @@ MonoBehaviour:
   sentence: "When you approach your grandma\u2019s room, a young lady\u2019s voice
     is heard."
   hasDecision: 0
-  yesSentence: 
+  yesSentence: Next
   YesSanityChange: 0
   YesKarmaChange: 0
   YesItemToGive: 
