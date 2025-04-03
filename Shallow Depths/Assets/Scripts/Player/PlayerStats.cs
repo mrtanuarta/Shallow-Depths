@@ -102,6 +102,7 @@ public class PlayerStats : MonoBehaviour
     }
     public void addKarma(int karmaAmt){
         karma += karmaAmt;
-        karma = Mathf.Clamp(karmaAmt,-100, 100);
+        playHitSound();
+        karma = Mathf.Clamp(karma,-100, 100);
     }
 }
